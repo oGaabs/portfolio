@@ -4,7 +4,7 @@ import { Document, Page, pdfjs } from "react-pdf"
 import pdf from "../../assets/docs/CV_Estagio_Gabriel_Santana_Silva.pdf"
 
 import "react-pdf/dist/esm/Page/AnnotationLayer.css"
-import { Container } from "../Home/styles";
+import { Container } from "./styles";
 import { ContactContainer, ContactIcon } from "../../components/Header/styles";
 import { useLang } from "../../contexts/LangContext";
 import { NavLink } from "react-router-dom";
@@ -52,11 +52,16 @@ export default function ResumeNew() {
                     <ContactContainer>
                         <a href={pdf} target="_blank" style={{ maxWidth: "250px" }} rel="noreferrer">
                             <ContactIcon contactType={"cv"}>
-                                <AiOutlineDownload size={"1.2rem"} /> <span>Download CV</span>
+                                <AiOutlineDownload size={"1.2rem"} /> {currentLang === "pt" ? (
+                                    <span>Baixar CV.pdf</span>
+                                ) : (
+                                    <span>Download CV.pdf</span>
+                                )}
                             </ContactIcon>
                         </a>
                     </ContactContainer>
                 </div>
+
 
                 <div className="resume" style={{ justifyContent: "center", position: "relative" }}>
                     <Document file={pdf}   >

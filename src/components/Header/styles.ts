@@ -19,6 +19,18 @@ export const ContactContainer = styled.div`
   display: flex;
 `
 
+export const CenterContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @media ${devices.mobileS} ${devices.mobileM} ${devices.mobileL} {
+    display: none;
+  }
+  
+`
+
 export const LangsContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -131,7 +143,6 @@ export const ContactIcon = styled.span<IContactIconContainerProps>`
               border-radius: 17px;
               color: var(--color-off-white);
               background: var(--color-bg-smooth);
-              
             }
           `
     }

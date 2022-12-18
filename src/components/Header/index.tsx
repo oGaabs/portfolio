@@ -1,4 +1,5 @@
 import {
+  CenterContainer,
   ContactContainer,
   ContactIcon,
   Container,
@@ -27,6 +28,15 @@ const Header = () => {
           <span>PT</span>
         </LangButton>
       </LangsContainer>
+
+      <CenterContainer>
+        <h2>Gabriel Santana Silva</h2>
+        {currentLang === "pt" ? (
+          <h3> Desenvolvedor</h3>
+        ) : (
+          <h3> Developer</h3>
+        )}
+      </CenterContainer>
 
       <ContactContainer>
         <a href="https://github.com/punigc" target="_blank" rel="noopener noreferrer">

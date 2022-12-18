@@ -15,9 +15,11 @@ import avatarDev from "../../assets/images/dev_ga.jpeg"
 import { HiDocumentDownload } from "react-icons/hi"
 import { ContactContainer, ContactIcon } from "../../components/Header/styles"
 import { NavLink } from "react-router-dom"
+import { useLang } from "../../contexts/LangContext"
 
 const Home = () => {
     const { activeTab } = useMenu()
+    const { currentLang } = useLang()
 
     return (
         <Container>
@@ -36,7 +38,11 @@ const Home = () => {
                         <ContactContainer>
                             <NavLink to={'/cv'}>
                                 <ContactIcon contactType={"cv"}>
-                                    <HiDocumentDownload size={"1.2rem"} /> <span>Download CV.pdf</span>
+                                    <HiDocumentDownload size={"1.2rem"} /> {currentLang === "pt" ? (
+                                        <span>Baixar CV.pdf</span>
+                                    ) : (
+                                        <span>Download CV.pdf</span>
+                                    )}
                                 </ContactIcon>
                             </NavLink>
                         </ContactContainer>
