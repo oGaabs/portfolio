@@ -9,7 +9,7 @@ import {
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { useLang } from "../../contexts/LangContext"
 
-const Header = () => {
+export default function Header() {
   const { currentLang, changeLangTo } = useLang()
 
   return (
@@ -55,4 +55,4 @@ const Header = () => {
   )
 }
 
-export default Header
+

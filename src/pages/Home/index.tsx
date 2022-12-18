@@ -17,7 +17,7 @@ import { ContactContainer, ContactIcon } from "../../components/Header/styles"
 import { NavLink } from "react-router-dom"
 import { useLang } from "../../contexts/LangContext"
 
-const Home = () => {
+export default function Home(){
     const { activeTab } = useMenu()
     const { currentLang } = useLang()
 
@@ -57,5 +57,3 @@ const Home = () => {
         </Container>
     )
 }
-
-export default Home

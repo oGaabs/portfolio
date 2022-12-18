@@ -2,7 +2,7 @@ import ProjectCard from "../ProjectCard"
 import { useProjects } from "../../contexts/ProjectsContext"
 import { Container, ProjectsContainer } from "./styles"
 
-const ProjectList = () => {
+export default function ProjectList() {
   const { projects } = useProjects()
 
   return (
@@ -23,5 +23,3 @@ const ProjectList = () => {
     </Container>
   )
 }
-
-export default ProjectList

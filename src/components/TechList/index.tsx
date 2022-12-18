@@ -4,7 +4,7 @@ import TechCard from "../TechCard"
 import Title from "../Title"
 import { TechListContainer, TechsContainer } from "./styles"
 
-const TechList = () => {
+export default function TechList () {
   const { currentLang } = useLang()
 
   const techsTitleText = {
@@ -28,4 +28,3 @@ const TechList = () => {
   )
 }
 
-export default TechList
