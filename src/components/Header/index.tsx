@@ -39,7 +39,7 @@ export default function Header() {
       </CenterContainer>
 
       <ContactContainer>
-        <a href="https://github.com/punigc" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/oGaabs" target="_blank" rel="noopener noreferrer">
           <ContactIcon contactType={"github"}>
             <FaGithub size={"1.2rem"} /> <span>Github</span>
           </ContactIcon>

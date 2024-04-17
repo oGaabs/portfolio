@@ -26,7 +26,7 @@ Fique à vontade para enviar sugestões, dicas ou até mesmo reconstruir o códi
 
 #### 🌐❤ Networks Gabriel:
 
-[<img alt="GitHub followers Gabriel" src="https://img.shields.io/github/followers/PuniGC?label=Follow&style=social" height="22" title="Follow me"/>][github-ga]
+[<img alt="GitHub followers Gabriel" src="https://img.shields.io/github/followers/oGaabs?label=Follow&style=social" height="22" title="Follow me"/>][github-ga]
 [<img alt="Instagram Gabriel" src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white&link=instagram.com/gabrielsants_dev/" height="22" />][instagram-ga]
 [<img alt="Mail to Gabriel" src="https://img.shields.io/badge/-Gmail-c14438?style=flat&logo=Gmail&logoColor=white" height="22" title="gabriel04.ok@gmail.com" />][email-ga]
 [<img alt="Linkedin Gabriel" src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/gabriel-santana-silva/" height="22" />][linkedin-ga]
@@ -41,7 +41,7 @@ This Unlicense.
 
 ---
 
-[github-ga]: https://github.com/PuniGC
+[github-ga]: https://github.com/oGaabs
 [linkedin-ga]: https://www.linkedin.com/in/gabriel-santana-silva/
 [email-ga]: mailto:gabriel04.ok@gmail.com
 [instagram-ga]: https://www.instagram.com/gabrielsants_dev/
