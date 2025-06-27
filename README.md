@@ -1,48 +1,87 @@
-<h2 align="center">
-    <img alt="Portfólio Banner" title="" src="https://user-images.githubusercontent.com/53992405/208288379-4702b94c-8235-4d1a-989d-f11f56cfc298.png" width="500px" />
-</h2>
-<p align="center">
-  <h1 align="center">Portfólio | React & Typescript :rocket:</h1>
-</p>
-<p align="center">
-  <a href="#-sobre">Sobre o Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#%EF%B8%8F-contribuindo">Contribuição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-networks-gabriel">Redes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-equipe">Equipe</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-license">Licença</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-</p>
+# Welcome to React Router!
 
-___
+A modern, production-ready template for building full-stack React applications using React Router.
 
-## 💻 Sobre
-Meu portfólio hospedado no vercel, acesso pelo link abaixo.
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
 
-## [Portfolio de minha trajetória](https://portfolio-gabriels.vercel.app/)
+## Features
 
+- 🚀 Server-side rendering
+- ⚡️ Hot Module Replacement (HMR)
+- 📦 Asset bundling and optimization
+- 🔄 Data loading and mutations
+- 🔒 TypeScript by default
+- 🎉 TailwindCSS for styling
+- 📖 [React Router docs](https://reactrouter.com/)
 
-## 🖋️ Contribuindo
+## Getting Started
 
-Fique à vontade para enviar sugestões, dicas ou até mesmo reconstruir o código, mas mastenha a autoria do projeto e não utiliza-o de maneira indevida ou de forma a prejudicar o projeto ou marca.
+### Installation
 
-#### 🌐❤ Networks Gabriel:
+Install the dependencies:
 
-[<img alt="GitHub followers Gabriel" src="https://img.shields.io/github/followers/oGaabs?label=Follow&style=social" height="22" title="Follow me"/>][github-ga]
-[<img alt="Instagram Gabriel" src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white&link=instagram.com/gabrielsants_dev/" height="22" />][instagram-ga]
-[<img alt="Mail to Gabriel" src="https://img.shields.io/badge/-Gmail-c14438?style=flat&logo=Gmail&logoColor=white" height="22" title="gabriel04.ok@gmail.com" />][email-ga]
-[<img alt="Linkedin Gabriel" src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/gabriel-santana-silva/" height="22" />][linkedin-ga]
+```bash
+npm install
+```
 
-## 👨‍💻 Equipe
+### Development
 
-* **Gabriel Santana Silva** - *Owner* - [Instagram](https://www.instagram.com/gabrielsants_dev/)
+Start the development server with HMR:
 
-## 📝 License
+```bash
+npm run dev
+```
 
-This Unlicense.
+Your application will be available at `http://localhost:5173`.
+
+## Building for Production
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+## Deployment
+
+### Docker Deployment
+
+To build and run using Docker:
+
+```bash
+docker build -t my-app .
+
+# Run the container
+docker run -p 3000:3000 my-app
+```
+
+The containerized application can be deployed to any platform that supports Docker, including:
+
+- AWS ECS
+- Google Cloud Run
+- Azure Container Apps
+- Digital Ocean App Platform
+- Fly.io
+- Railway
+
+### DIY Deployment
+
+If you're familiar with deploying Node applications, the built-in app server is production-ready.
+
+Make sure to deploy the output of `npm run build`
+
+```
+├── package.json
+├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
+├── build/
+│   ├── client/    # Static assets
+│   └── server/    # Server-side code
+```
+
+## Styling
+
+This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
 
 ---
 
-[github-ga]: https://github.com/oGaabs
-[linkedin-ga]: https://www.linkedin.com/in/gabriel-santana-silva/
-[email-ga]: mailto:gabriel04.ok@gmail.com
-[instagram-ga]: https://www.instagram.com/gabrielsants_dev/
-
+Built with ❤️ using React Router.
