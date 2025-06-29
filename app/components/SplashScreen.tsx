@@ -20,7 +20,7 @@ const SplashScreen = ({ onFinish }: SplashScreenProps) => {
       setTextVisible(true);
     }, 700); // texto aparece após ondas sumirem
 
-    // Iniciar fade out após 4.5 segundos
+    // Iniciar fade out após 4 segundos
     const fadeTimer = setTimeout(() => {
       setFadeOut(true);
     }, 4000);

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Navigation from "~/components/Navigation";
-import type { Route } from "./+types/home";
 import SplashScreen from '~/components/SplashScreen';
 import { ThemeProvider } from "~/components/ThemeProvider";
 
+import type { Route } from "./+types/home";
+
 export function meta({ }: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Portfolio Santana" },
+    { name: "description", content: "Portfolio of the Gabriel Santana Silva Developer!" },
   ];
 }
 
