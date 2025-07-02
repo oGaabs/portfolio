@@ -4,7 +4,8 @@ import SplashScreen from '~/components/SplashScreen';
 import Hero from '~/components/Hero';
 import { ThemeProvider } from "~/components/ThemeProvider";
 
-import type { Route } from "./+types/Home";
+import type { Route } from "./+types/Index";
+import Experience from '~/components/Experience';
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -23,9 +24,10 @@ export default function Home() {
   return (
     <ThemeProvider>
       {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="min-h-screen bg-background transition-colors duration-300">
         <Navigation />
         <Hero />
+        <Experience />
       </div>
     </ThemeProvider>
   )
