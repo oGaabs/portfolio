@@ -14,6 +14,7 @@ const techs: { name: string; src: string }[] = [
 
 export default function TechStack() {
   return (
+  <section id="skills">
     <div className="mb-8">
       <div className="text-center mb-6">
         <p className="text-xs md:text-sm uppercase tracking-wider font-medium text-primary/70 mb-2">What I use</p>
@@ -49,5 +50,6 @@ export default function TechStack() {
         </div>
       </div>
     </div>
+    </section>
   );
 }

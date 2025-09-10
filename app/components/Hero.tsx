@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown } from 'react-icons/fa';
+import { useEffect, useRef } from 'react';
+import { FaArrowDown, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const links = {
   github: 'https://github.com/oGaabs',
@@ -9,14 +9,15 @@ const links = {
 
 const Hero = () => {
   const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
+    const aboutSection = document.getElementById('skills');
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="home" className="bg-background min-h-screen flex items-center justify-center pt-20">
+    // use full viewport height but subtract top navigation height (approx 80px) to avoid extra bottom space
+    <section id="home" className="bg-background min-h-[calc(100vh-80px)] flex items-center justify-center">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="animate-fade-in">
           <div className="grid md:grid-cols-2 gap-24 items-center">
@@ -33,18 +34,62 @@ const Hero = () => {
 
 // Photo Section Component
 function PhotoSection() {
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const imgRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    const el = wrapperRef.current;
+    const img = imgRef.current;
+    if (!el || !img) return;
+
+    const handleMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 .. 0.5
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      const rotX = (-y * 10).toFixed(2);
+      const rotY = (x * 10).toFixed(2);
+      const translateX = (x * 8).toFixed(2);
+      const translateY = (y * 8).toFixed(2);
+
+      img.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translate(${translateX}px, ${translateY}px) scale(1.04)`;
+    };
+
+    const handleLeave = () => {
+      if (img) img.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translate(0px, 0px) scale(1)';
+    };
+
+    el.addEventListener('mousemove', handleMove);
+    el.addEventListener('mouseleave', handleLeave);
+
+    return () => {
+      el.removeEventListener('mousemove', handleMove);
+      el.removeEventListener('mouseleave', handleLeave);
+    };
+  }, []);
+
   return (
     <div className="flex justify-center md:justify-end order-2 md:order-1">
-      <div className="relative group">
-        <div className="absolute -inset-4 bg-gradient-to-r from-primary via-yellow-400 to-orange-500 rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500 animate-pulse"></div>
-        <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-primary shadow-2xl">
+      <div ref={wrapperRef} className="relative group w-80 h-80 -mt-3 -ml-3 md:-mt-6 md:-ml-6">
+  {/* colorful blurred ring (blue / cyan theme) */}
+  <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-cyan-200 blur-3xl opacity-40 group-hover:opacity-80 transition-opacity duration-500" />
+
+        {/* glass card with portrait */}
+        <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl transform transition-all duration-500 group-hover:scale-105">
           <img
+            ref={imgRef}
             src="Gabriel-1.png"
-            alt="Gabriel Santana"
-            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+            alt="Portrait of Gabriel Santana"
+            className="w-full h-full object-cover transition-transform duration-300 will-change-transform"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+          {/* subtle overlay gradient for depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-30 pointer-events-none" />
         </div>
+
+  {/* small floating accents */}
+  <span className="absolute -right-3 -top-3 w-6 h-6 bg-white/20 rounded-full blur-sm animate-pulse pointer-events-none" />
+  <span className="absolute -left-3 -bottom-3 w-4 h-4 bg-cyan-300/30 rounded-full blur-sm animate-pulse pointer-events-none" />
       </div>
     </div>
   );
@@ -55,7 +100,7 @@ function TextSection({ scrollToAbout }: { scrollToAbout: () => void }) {
   return (
     <div className="text-center md:text-left order-1 md:order-2">
       <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
-        Hi, I'm <span className="text-yellow-400  bg-clip-text">Gabriel Santana</span>
+        Hi, I'm <span className="text-primary  bg-clip-text">Gabriel Santana</span>
       </h1>
 
       <p className="text-xl md:text-2xl text-muted-foreground mb-8">
@@ -82,7 +127,7 @@ function TextSection({ scrollToAbout }: { scrollToAbout: () => void }) {
         </a>
         <a
           href={links.email}
-          className="p-3 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full hover:opacity-90 transition-all duration-300 hover:scale-110 shadow-lg"
+          className="p-3 bg-gradient-to-r from-red-500 to-red-400 text-white rounded-full hover:opacity-90 transition-all duration-300 hover:scale-110 shadow-lg"
         >
           <FaEnvelope size={24} />
         </a>
@@ -92,8 +137,8 @@ function TextSection({ scrollToAbout }: { scrollToAbout: () => void }) {
         onClick={scrollToAbout}
         className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors duration-200 animate-bounce"
       >
-        <span className="text-lg font-medium">Discover More</span>
-        <FaArrowDown size={20} />
+        <span className="text-lg font-medium text-cyan-500">Discover More</span>
+        <FaArrowDown className="text-cyan-500" size={20} />
       </button>
     </div>
   );

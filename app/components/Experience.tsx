@@ -91,7 +91,7 @@ export default function Experience() {
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Work Experience
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-yellow-400 mx-auto mb-8"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-cyan-400 mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             My professional journey in software development
           </p>
