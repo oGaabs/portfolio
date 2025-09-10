@@ -6,6 +6,7 @@ import { ThemeProvider } from "~/components/ThemeProvider";
 
 import type { Route } from "./+types/Index";
 import Experience from '~/components/Experience';
+import Contact from '~/components/Contact';
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -28,6 +29,10 @@ export default function Home() {
         <Navigation />
         <Hero />
         <Experience />
+
+        {/* TODO: Implement Projects Section */}
+        {/* <Projects /> */}
+        <Contact />
       </div>
     </ThemeProvider>
   )

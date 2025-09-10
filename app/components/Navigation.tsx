@@ -33,10 +33,10 @@ const Navigation = () => {
           <div className="text-2xl font-bold text-foreground">
             Portfolio
           </div>
-          
+
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {['home', 'about', 'experience', 'robot', 'projects', 'contact'].map((item) => (
+            {['home', 'about', 'experience', 'projects', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
@@ -45,7 +45,7 @@ const Navigation = () => {
                 {item}
               </button>
             ))}
-            
+
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}

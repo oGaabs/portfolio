@@ -1,6 +1,6 @@
 import React from 'react';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
-import experiences from '~/constants/WorkExperience';
+import experiences from '~/assets/WorkExperience';
 
 function ExperienceCard({ experience }: { experience: any }) {
   return (
