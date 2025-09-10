@@ -1,9 +1,10 @@
 const experiences = [
   {
-    title:       "Intern | Software Developer",
-    company:     "FIT - Institute of Technology",
-    location:    "Jaguariúna, São Paulo, Brazil · Hybrid Work",
-    period:      "Aug 2024 - Present · 1 year",
+    title: "Intern | Software Developer",
+    company: "FIT - Institute of Technology",
+    location: "Jaguariúna, São Paulo, Brazil · Hybrid Work",
+    startDate: "2024-08-01",
+    endDate: null, // ongoing
     description: "Worked on the SmartFactory Project, orchestrating data pipelines and executing DAG workflows, focusing on data intelligence and KPIs to make decision processes more efficient across multiple client areas and services, including Production, NPI, Quality, among others.",
     highlights: [
       "BigQuery (SQL) data analysis & PowerBI reports for strategic insights",
@@ -15,10 +16,11 @@ const experiences = [
     ]
   },
   {
-    title:       "Apprentice | Ecommerce Developer and BI Analyst",
-    company:     "Motorola Mobility (a Lenovo Company)",
-    location:    "Jaguariúna, São Paulo, Brazil · In-Office",
-    period:      "Mar 2023 - Jun 2024 · 1 year 4 months",
+    title: "Apprentice | Ecommerce Developer and BI Analyst",
+    company: "Motorola Mobility (a Lenovo Company)",
+    location: "Jaguariúna, São Paulo, Brazil · In-Office",
+    startDate: "2023-03-01",
+    endDate: "2024-06-01",
     description: "Participated in the digital transformation of Motorola's processes and Supply Chain, optimizing internal processes and working together with the VTEX platform, Motorola's leading unified commerce partner in Latin America. Through project development, worked on problem identification, digitization and implementation of new processes/marketplaces, E-Commerce, PPB, and Products. Improved analysis, accuracy, and data flow in the supply chain area, collaborating closely with other internal teams such as Development, Products, Ecommerce, Engineering, and Finance, as well as factory operations, to solve problems and drive improvements.",
     highlights: [
       "VTEX/SQL data analysis, Excel & PowerBI reports",

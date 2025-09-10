@@ -1,8 +1,39 @@
-import React from 'react';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 import experiences from '~/assets/WorkExperience';
 
+function formatDateLabel(dateStr: string | null) {
+  if (!dateStr) return 'Present';
+  const d = new Date(dateStr);
+  return d.toLocaleString('en-US', { month: 'short', year: 'numeric' });
+}
+
+function calcDuration(startStr: string, endStr: string | null) {
+  const start = new Date(startStr);
+  const end = endStr ? new Date(endStr) : new Date();
+
+  let years = end.getFullYear() - start.getFullYear();
+  let months = end.getMonth() - start.getMonth();
+  if (months < 0) {
+    years -= 1;
+    months += 12;
+  }
+
+  const parts: string[] = [];
+  if (years > 0) parts.push(`${years} year${years > 1 ? 's' : ''}`);
+  if (months > 0) parts.push(`${months} month${months > 1 ? 's' : ''}`);
+  if (parts.length === 0) return 'Less than a month';
+  return parts.join(' ');
+}
+
 function ExperienceCard({ experience }: { experience: any }) {
+  const start = experience.startDate;
+  const end = experience.endDate ?? null;
+  const startLabel = formatDateLabel(start);
+  const endLabel = formatDateLabel(end);
+  const duration = calcDuration(start, end);
+
+  const periodLabel = `${startLabel} - ${endLabel} · ${duration}`;
+
   return (
     <div className="bg-card border border-border rounded-xl p-8 hover:bg-accent transition-all duration-300">
       <div className="flex flex-col md:flex-row md:items-start md:space-x-6">
@@ -24,7 +55,7 @@ function ExperienceCard({ experience }: { experience: any }) {
             <div className="flex flex-col md:items-end space-y-1">
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Calendar className="w-4 h-4" />
-                <span className="text-sm font-medium">{experience.period}</span>
+                <span className="text-sm font-medium">{periodLabel}</span>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="w-4 h-4" />
