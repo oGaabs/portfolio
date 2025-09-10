@@ -7,6 +7,7 @@ import { ThemeProvider } from "~/components/ThemeProvider";
 import type { Route } from "./+types/Index";
 import Experience from '~/components/Experience';
 import Contact from '~/components/Contact';
+import TechStack from '~/components/TechStack';
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -28,6 +29,7 @@ export default function Home() {
       <div className="min-h-screen bg-background transition-colors duration-300">
         <Navigation />
         <Hero />
+        <TechStack />
         <Experience />
 
         {/* TODO: Implement Projects Section */}
