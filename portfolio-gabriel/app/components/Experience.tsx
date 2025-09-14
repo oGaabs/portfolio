@@ -1,5 +1,5 @@
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
-import experiences from '~/assets/WorkExperience';
+import experiences from '../assets/WorkExperience';
 
 function formatDateLabel(dateStr: string | null) {
   if (!dateStr) return 'Present';
@@ -25,7 +25,17 @@ function calcDuration(startStr: string, endStr: string | null) {
   return parts.join(' ');
 }
 
-function ExperienceCard({ experience }: { experience: any }) {
+interface ExperienceType {
+  title: string;
+  company: string;
+  location: string;
+  description: string;
+  highlights: string[];
+  startDate: string;
+  endDate?: string | null;
+}
+
+function ExperienceCard({ experience }: { experience: ExperienceType }) {
   const start = experience.startDate;
   const end = experience.endDate ?? null;
   const startLabel = formatDateLabel(start);

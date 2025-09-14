@@ -1,3 +1,5 @@
+"use client";
+
 import emailjs from '@emailjs/browser';
 import { Github, Linkedin, Mail, MapPin, Phone, Send, Twitter } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
@@ -23,12 +25,12 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const serviceId = import.meta.env?.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env?.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env?.VITE_EMAILJS_PUBLIC_KEY;
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
-      toast.error('Email service is not configured. Please set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID and VITE_EMAILJS_PUBLIC_KEY.');
+      toast.error('Email service is not configured. Please set NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID and NEXT_PUBLIC_EMAILJS_PUBLIC_KEY.');
       return;
     }
 
@@ -36,7 +38,7 @@ const Contact = () => {
       from_name: formData.name,
       from_email: formData.email,
       message: formData.message,
-      to_email: import.meta.env?.VITE_EMAILJS_TO_EMAIL,
+      to_email: process.env.NEXT_PUBLIC_EMAILJS_TO_EMAIL,
     };
 
     emailjs.send(serviceId, templateId, templateParams, publicKey)
@@ -68,7 +70,7 @@ const Contact = () => {
           </h2>
           <div className="w-20 h-1 bg-cyan-600 mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            I'm always open to discussing new opportunities, creative projects, or just having a chat about technology
+            I&apos;m always open to discussing new opportunities, creative projects, or just having a chat about technology
           </p>
         </div>
 
@@ -77,11 +79,11 @@ const Contact = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Let's Start a Conversation
+                Let&apos;s Start a Conversation
               </h3>
               <p className="text-gray-600 leading-relaxed mb-8">
                 Whether you have a project in mind, want to collaborate, or just want to say hello,
-                I'd love to hear from you. Feel free to reach out through any of the channels below.
+                I&apos;d love to hear from you. Feel free to reach out through any of the channels below.
               </p>
             </div>
 

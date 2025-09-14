@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useRef } from 'react';
 import { FaArrowDown, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
@@ -17,7 +19,7 @@ const Hero = () => {
 
   return (
     // use full viewport height but subtract top navigation height (approx 80px) to avoid extra bottom space
-    <section id="home" className="bg-background min-h-[calc(100vh-80px)] flex items-center justify-center">
+    <section id="about" className="bg-background min-h-[calc(100vh-80px)] flex items-center justify-center">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="animate-fade-in">
           <div className="grid md:grid-cols-2 gap-24 items-center">
@@ -100,11 +102,11 @@ function TextSection({ scrollToAbout }: { scrollToAbout: () => void }) {
   return (
     <div className="text-center md:text-left order-1 md:order-2">
       <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
-        Hi, I'm <span className="text-primary  bg-clip-text">Gabriel Santana</span>
+        Hi, I&#39;m <span className="text-primary  bg-clip-text">Gabriel Santana</span>
       </h1>
 
       <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-        Data Enginner and Full Stack Developer passionate about creating beautiful, functional applications
+        Data Engineer and Full Stack Developer passionate about creating beautiful, functional applications
         that make a difference
       </p>
 
