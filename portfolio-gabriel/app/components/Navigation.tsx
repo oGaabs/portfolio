@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, Moon, Sun, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { useTheme } from './ThemeProvider';
 
 
@@ -7,6 +7,9 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const sections = ['about', 'experience', 'contact'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +17,23 @@ const Navigation = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const opts = { root: null, rootMargin: '0px', threshold: [0.2, 0.5, 0.8] };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveSection(entry.target.id || null);
+      });
+    }, opts);
+    observerRef.current = observer;
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -31,28 +51,29 @@ const Navigation = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="text-2xl font-bold text-foreground">
-            Portfolio
+            <button onClick={() => scrollToSection('about')} className="focus:outline-none">Portfolio</button>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {['about', 'experience', 'projects', 'contact'].map((item) => (
+            {['about', 'experience', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-muted-foreground hover:text-primary capitalize transition-colors duration-200 font-medium"
+                className={`text-muted-foreground hover:text-primary capitalize transition-colors duration-200 font-medium ${activeSection === item ? 'text-primary font-semibold' : ''}`}
+                aria-current={activeSection === item ? 'page' : undefined}
               >
                 {item}
               </button>
             ))}
 
-            {/* Theme Toggle */}
+            {/* Theme Toggle
             <button
               onClick={toggleTheme}
               className="p-2 text-muted-foreground hover:text-primary transition-colors duration-200"
             >
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
+            </button> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -76,7 +97,7 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-background border-t border-border">
             <div className="py-4 space-y-4">
-              {['home', 'about', 'experience', 'robot', 'projects', 'contact'].map((item) => (
+              {['about', 'experience', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
