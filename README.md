@@ -1,6 +1,6 @@
 <h2 align="center">
     <img alt="Portfólio Banner" title="" src="https://github.com/user-attachments/assets/bbda371d-a37f-4e0c-9c73-5015a052ac88" width="500px" />
-</h2>![Uploading image.png…]()
+</h2>
 
 <p align="center">
   <h1 align="center">Portfólio | React & Typescript :rocket:</h1>
