@@ -10,6 +10,7 @@ import Hero from "./components/Hero";
 import SmoothScroll from "./components/SmoothScroll";
 import SplashScreen from "./components/SplashScreen";
 import TechStack from "./components/TechStack";
+// import VerticalScrollBar from "./components/VerticalScrollBar";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -19,7 +20,9 @@ export default function Home() {
   };
 
   return (
+
     <ThemeProvider>
+
       <SmoothScroll>
         {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
         <div className="min-h-screen bg-background transition-colors duration-300">

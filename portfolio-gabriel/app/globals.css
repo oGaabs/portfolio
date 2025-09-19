@@ -61,6 +61,29 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Native scrollbar styling - subtle and theme-aware */
+  /* Firefox */
+  html, body {
+    scrollbar-width: thin; /* auto | thin | none */
+    scrollbar-color: hsl(var(--primary) / 0.5) hsl(var(--muted));
+  }
+  /* WebKit (Chrome, Edge, Safari) */
+  html::-webkit-scrollbar, body::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  html::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--sidebar-primary)));
+    border-radius: 9999px;
+    border: 2px solid hsl(var(--muted)); /* creates inset look */
+  }
+  html::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, hsl(var(--primary) / 0.9), hsl(var(--sidebar-primary) / 0.9));
+  }
 }
 
 @layer components {
