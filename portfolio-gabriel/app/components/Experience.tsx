@@ -1,6 +1,22 @@
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import Image from 'next/image';
 import experiences from '../assets/WorkExperience';
 import Reveal from './Reveal';
+
+// Normalize company names to improve matching
+function normalizeCompanyName(name: string) {
+  return name
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .replace(/&/g, 'and');
+}
+
+// Map of known company names to local logo paths under public/logos
+const companyLogoMap: Record<string, string> = {
+  'fit - flextronics institute of technology': '/logos/fit_3.jpg',
+  'motorola mobility (a lenovo company)': '/logos/motorola_1.jpg',
+};
 
 function formatDateLabel(dateStr: string | null) {
   if (!dateStr) return 'Present';
@@ -44,14 +60,26 @@ function ExperienceCard({ experience }: { experience: ExperienceType }) {
   const duration = calcDuration(start, end);
 
   const periodLabel = `${startLabel} - ${endLabel} · ${duration}`;
+  const logoSrc = companyLogoMap[normalizeCompanyName(experience.company)] ?? null;
 
   return (
     <Reveal>
     <div className="bg-card border border-border rounded-xl p-8 hover:bg-accent transition-all duration-300">
       <div className="flex flex-col md:flex-row md:items-start md:space-x-6">
         <div className="flex-shrink-0 mb-4 md:mb-0">
-          <div className="w-16 h-16 bg-secondary/10 border border-secondary/20 rounded-full flex items-center justify-center">
-            <Briefcase className="w-8 h-8 text-secondary" />
+          <div className="w-16 h-16 bg-secondary/10 border border-secondary/20 rounded-full flex items-center justify-center relative overflow-hidden">
+            {logoSrc ? (
+              <Image
+                src={logoSrc}
+                alt={`${experience.company} logo`}
+                fill
+                sizes="64px"
+                className="object-cover"
+                priority={false}
+              />
+            ) : (
+              <Briefcase className="w-8 h-8 text-secondary" />
+            )}
           </div>
         </div>
         <div className="flex-grow">

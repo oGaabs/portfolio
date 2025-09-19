@@ -1,7 +1,7 @@
 const experiences = [
   {
     title: "Intern | Software Developer",
-    company: "FIT - Institute of Technology",
+    company: "FIT - Flextronics Institute of Technology",
     location: "Jaguariúna, São Paulo, Brazil · Hybrid Work",
     startDate: "2024-08-01",
     endDate: null, // ongoing
