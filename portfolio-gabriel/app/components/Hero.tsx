@@ -105,7 +105,7 @@ function TextSection({ scrollToAbout }: { scrollToAbout: () => void }) {
   return (
     <div className="text-center md:text-left order-1 md:order-2">
       <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
-        Hi, I&#39;m <span className="text-primary  bg-clip-text">Gabriel Santana</span>
+        Hi, I&#39;m <span className="text-primary bg-clip-text">Gabriel Santana</span>
       </h1>
 
       <p className="text-xl md:text-2xl text-muted-foreground mb-8">
