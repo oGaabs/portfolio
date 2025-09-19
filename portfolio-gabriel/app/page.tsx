@@ -12,7 +12,7 @@ import SplashScreen from "./components/SplashScreen";
 import TechStack from "./components/TechStack";
 
 export default function Home() {
-  const [showSplash, setShowSplash] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
 
   const handleSplashFinish = () => {
     setShowSplash(false);
