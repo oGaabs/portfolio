@@ -1,6 +1,7 @@
 <h2 align="center">
-    <img alt="Portfólio Banner" title="" src="https://user-images.githubusercontent.com/53992405/208288379-4702b94c-8235-4d1a-989d-f11f56cfc298.png" width="500px" />
+    <img alt="Portfólio Banner" title="" src="https://github.com/user-attachments/assets/bbda371d-a37f-4e0c-9c73-5015a052ac88" width="500px" />
 </h2>
+
 <p align="center">
   <h1 align="center">Portfólio | React & Typescript :rocket:</h1>
 </p>

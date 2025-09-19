@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-background: rgb(20, 23, 25);
+  --color-foreground: rgb(255, 255, 255);
+  --color-muted-foreground: rgb(148, 163, 184);
+
+  --color-primary: rgb(14, 165, 233);
+  --color-secondary: rgb(57, 103, 153);
+}
+
+@layer base {
+  :root {
+    --background: 210 11% 9%;
+    --foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --card: 210 11% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 210 11% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    /* modern blue -- corresponds approximately to #0ea5e9 */
+    --primary: 192 89% 48%;
+    --primary-foreground: 210 11% 9%;
+
+    --secondary: 210 11% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 11% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 210 11% 15%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 11% 15%;
+    --input: 210 11% 15%;
+    --ring: 192 89% 48%;
+    --sidebar-background: 210 11% 9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 192 89% 48%;
+    --sidebar-primary-foreground: 210 11% 9%;
+    --sidebar-accent: 210 11% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 210 11% 15%;
+    --sidebar-ring: 192 89% 48%;
+  }
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Native scrollbar styling - subtle and theme-aware */
+  /* Firefox */
+  html, body {
+    scrollbar-width: thin; /* auto | thin | none */
+    scrollbar-color: hsl(var(--primary) / 0.5) hsl(var(--muted));
+  }
+  /* WebKit (Chrome, Edge, Safari) */
+  html::-webkit-scrollbar, body::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  html::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--sidebar-primary)));
+    border-radius: 9999px;
+    border: 2px solid hsl(var(--muted)); /* creates inset look */
+  }
+  html::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, hsl(var(--primary) / 0.9), hsl(var(--sidebar-primary) / 0.9));
+  }
+}
+
+@layer components {
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+}
