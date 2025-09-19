@@ -15,7 +15,7 @@ const Contact = () => {
     message: ''
   });
 
-  // Live clock to keep the page "viva" and always show up-to-date info
+  // Live clock to keep the page "alive" and always show up-to-date info
   const [now, setNow] = useState<Date>(new Date());
 
   useEffect(() => {
