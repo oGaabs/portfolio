@@ -11,7 +11,7 @@ const SplashScreen = ({ onFinish }: SplashScreenProps) => {
   const [showWaves, setShowWaves] = useState(true);
 
   useEffect(() => {
-    // Mostrar efeitoss de onda por 200ms
+    // Mostrar efeitos de onda por 200ms
     const wavesFadeTimer = setTimeout(() => {
       setShowWaves(false);
     }, 200);
