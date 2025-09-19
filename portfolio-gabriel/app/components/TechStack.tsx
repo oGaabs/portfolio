@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import Reveal from './Reveal';
 
 const techs: { name: string; src: string }[] = [
 
@@ -29,23 +31,25 @@ export default function TechStack() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-6">
             {techs.map((t) => (
+              <Reveal key={t.name}>
               <div
                 key={t.name}
                 className="flex flex-col items-center space-y-3 bg-card/60 backdrop-blur-sm p-3 rounded-2xl shadow-md hover:scale-105 transform transition-all duration-200"
                 style={{ minWidth: 110 }}
               >
                 <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-blue-500/10 to-blue-100/5 flex items-center justify-center">
-                  <img
+                  <Image
                     src={t.src}
                     alt={t.name}
+                    width={40}
+                    height={40}
                     className="w-10 h-10 object-contain"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
+                    unoptimized
                   />
                 </div>
                 <span className="text-sm text-muted-foreground font-medium">{t.name}</span>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>

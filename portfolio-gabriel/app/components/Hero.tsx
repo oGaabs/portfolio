@@ -1,5 +1,6 @@
 "use client"
 
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { FaArrowDown, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
@@ -78,11 +79,13 @@ function PhotoSection() {
 
         {/* glass card with portrait */}
         <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl transform transition-all duration-500 group-hover:scale-105">
-          <img
-            ref={imgRef}
-            src="Gabriel-1.png"
+          <Image
+            ref={imgRef as unknown as React.RefObject<HTMLImageElement>}
+            src="/Gabriel-1.png"
             alt="Portrait of Gabriel Santana"
-            className="w-full h-full object-cover transition-transform duration-300 will-change-transform"
+            fill
+            className="object-cover transition-transform duration-300 will-change-transform"
+            priority
           />
 
           {/* subtle overlay gradient for depth */}
@@ -140,7 +143,7 @@ function TextSection({ scrollToAbout }: { scrollToAbout: () => void }) {
         className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors duration-200 animate-bounce"
       >
         <span className="text-lg font-medium text-cyan-500">Discover More</span>
-        <FaArrowDown className="text-cyan-500" size={20} />
+          <FaArrowDown className="text-cyan-500" size={20} />
       </button>
     </div>
   );

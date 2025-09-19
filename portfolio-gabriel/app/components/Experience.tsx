@@ -1,5 +1,6 @@
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 import experiences from '../assets/WorkExperience';
+import Reveal from './Reveal';
 
 function formatDateLabel(dateStr: string | null) {
   if (!dateStr) return 'Present';
@@ -45,6 +46,7 @@ function ExperienceCard({ experience }: { experience: ExperienceType }) {
   const periodLabel = `${startLabel} - ${endLabel} · ${duration}`;
 
   return (
+    <Reveal>
     <div className="bg-card border border-border rounded-xl p-8 hover:bg-accent transition-all duration-300">
       <div className="flex flex-col md:flex-row md:items-start md:space-x-6">
         <div className="flex-shrink-0 mb-4 md:mb-0">
@@ -90,6 +92,7 @@ function ExperienceCard({ experience }: { experience: ExperienceType }) {
         </div>
       </div>
     </div>
+    </Reveal>
   );
 }
 
