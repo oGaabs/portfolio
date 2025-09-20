@@ -1,22 +1,22 @@
 "use client"
 
-import Image from 'next/image';
-import { useEffect, useRef } from 'react';
-import { FaArrowDown, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import Image from "next/image"
+import { useEffect, useRef } from "react"
+import { FaArrowDown, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa"
 
 const links = {
-  github: 'https://github.com/oGaabs',
-  linkedin: 'https://linkedin.com/in/gabriel-santana-silva/',
-  email: 'mailto:gabriel04.ok@gmail.com'
+  github: "https://github.com/oGaabs",
+  linkedin: "https://linkedin.com/in/gabriel-santana-silva/",
+  email: "mailto:gabriel04.ok@gmail.com"
 }
 
 const Hero = () => {
   const scrollToAbout = () => {
-    const aboutSection = document.getElementById('skills');
+    const aboutSection = document.getElementById("skills")
     if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+      aboutSection.scrollIntoView({ behavior: "smooth" })
     }
-  };
+  }
 
   return (
     // use full viewport height but subtract top navigation height (approx 80px) to avoid extra bottom space
@@ -32,50 +32,50 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 // Photo Section Component
 function PhotoSection() {
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const imgRef = useRef<HTMLImageElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null)
+  const imgRef = useRef<HTMLImageElement | null>(null)
 
   useEffect(() => {
-    const el = wrapperRef.current;
-    const img = imgRef.current;
-    if (!el || !img) return;
+    const el = wrapperRef.current
+    const img = imgRef.current
+    if (!el || !img) return
 
     const handleMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 .. 0.5
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      const rect = el.getBoundingClientRect()
+      const x = (e.clientX - rect.left) / rect.width - 0.5 // -0.5 .. 0.5
+      const y = (e.clientY - rect.top) / rect.height - 0.5
 
-      const rotX = (-y * 10).toFixed(2);
-      const rotY = (x * 10).toFixed(2);
-      const translateX = (x * 8).toFixed(2);
-      const translateY = (y * 8).toFixed(2);
+      const rotX = (-y * 10).toFixed(2)
+      const rotY = (x * 10).toFixed(2)
+      const translateX = (x * 8).toFixed(2)
+      const translateY = (y * 8).toFixed(2)
 
-      img.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translate(${translateX}px, ${translateY}px) scale(1.04)`;
-    };
+      img.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translate(${translateX}px, ${translateY}px) scale(1.04)`
+    }
 
     const handleLeave = () => {
-      if (img) img.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translate(0px, 0px) scale(1)';
-    };
+      if (img) img.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) translate(0px, 0px) scale(1)"
+    }
 
-    el.addEventListener('mousemove', handleMove);
-    el.addEventListener('mouseleave', handleLeave);
+    el.addEventListener("mousemove", handleMove)
+    el.addEventListener("mouseleave", handleLeave)
 
     return () => {
-      el.removeEventListener('mousemove', handleMove);
-      el.removeEventListener('mouseleave', handleLeave);
-    };
-  }, []);
+      el.removeEventListener("mousemove", handleMove)
+      el.removeEventListener("mouseleave", handleLeave)
+    }
+  }, [])
 
   return (
     <div className="flex justify-center md:justify-end order-2 md:order-1">
       <div ref={wrapperRef} className="relative group w-80 h-80 -mt-3 -ml-3 md:-mt-6 md:-ml-6">
-  {/* colorful blurred ring (blue / cyan theme) */}
-  <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-cyan-200 blur-3xl opacity-40 group-hover:opacity-80 transition-opacity duration-500" />
+        {/* colorful blurred ring (blue / cyan theme) */}
+        <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-cyan-200 blur-3xl opacity-40 group-hover:opacity-80 transition-opacity duration-500" />
 
         {/* glass card with portrait */}
         <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl transform transition-all duration-500 group-hover:scale-105">
@@ -92,12 +92,12 @@ function PhotoSection() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-30 pointer-events-none" />
         </div>
 
-  {/* small floating accents */}
-  <span className="absolute -right-3 -top-3 w-6 h-6 bg-white/20 rounded-full blur-sm animate-pulse pointer-events-none" />
-  <span className="absolute -left-3 -bottom-3 w-4 h-4 bg-cyan-300/30 rounded-full blur-sm animate-pulse pointer-events-none" />
+        {/* small floating accents */}
+        <span className="absolute -right-3 -top-3 w-6 h-6 bg-white/20 rounded-full blur-sm animate-pulse pointer-events-none" />
+        <span className="absolute -left-3 -bottom-3 w-4 h-4 bg-cyan-300/30 rounded-full blur-sm animate-pulse pointer-events-none" />
       </div>
     </div>
-  );
+  )
 }
 
 // Text Section Component
@@ -143,12 +143,12 @@ function TextSection({ scrollToAbout }: { scrollToAbout: () => void }) {
         className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors duration-200 animate-bounce"
       >
         <span className="text-lg font-medium text-cyan-500">Discover More</span>
-          <FaArrowDown className="text-cyan-500" size={20} />
+        <FaArrowDown className="text-cyan-500" size={20} />
       </button>
     </div>
-  );
+  )
 }
 
 
 
-export default Hero;
+export default Hero

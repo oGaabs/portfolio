@@ -1,18 +1,18 @@
-import Image from 'next/image';
-import Reveal from './Reveal';
+import Image from "next/image"
+import Reveal from "./Reveal"
 
 const techs: { name: string; src: string }[] = [
 
-  { name: 'AI-Driven Solutions', src: 'https://github.com/user-attachments/assets/e5b54a09-52e5-4252-8e7f-61cde7fd2703' },
-  { name: 'Google Cloud', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg' },
-  { name: 'Python', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  { name: 'Java', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
-  { name: 'C#', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
-  { name: 'SQL', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg' },
-  { name: 'React', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-  { name: 'Node.js', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-  { name: 'TypeScript', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-];
+  { name: "AI-Driven Solutions", src: "https://github.com/user-attachments/assets/e5b54a09-52e5-4252-8e7f-61cde7fd2703" },
+  { name: "Google Cloud", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
+  { name: "Python", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "Java", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
+  { name: "C#", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+  { name: "SQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" },
+  { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Node.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+]
 
 export default function TechStack() {
   return (
@@ -32,28 +32,28 @@ export default function TechStack() {
           <div className="flex flex-wrap items-center justify-center gap-6">
             {techs.map((t) => (
               <Reveal key={t.name}>
-              <div
-                key={t.name}
-                className="flex flex-col items-center space-y-3 bg-card/60 backdrop-blur-sm p-3 rounded-2xl shadow-md hover:scale-105 transform transition-all duration-200"
-                style={{ minWidth: 110 }}
-              >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-blue-500/10 to-blue-100/5 flex items-center justify-center">
-                  <Image
-                    src={t.src}
-                    alt={t.name}
-                    width={40}
-                    height={40}
-                    className="w-10 h-10 object-contain"
-                    unoptimized
-                  />
+                <div
+                  key={t.name}
+                  className="flex flex-col items-center space-y-3 bg-card/60 backdrop-blur-sm p-3 rounded-2xl shadow-md hover:scale-105 transform transition-all duration-200"
+                  style={{ minWidth: 110 }}
+                >
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-blue-500/10 to-blue-100/5 flex items-center justify-center">
+                    <Image
+                      src={t.src}
+                      alt={t.name}
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 object-contain"
+                      unoptimized
+                    />
+                  </div>
+                  <span className="text-sm text-muted-foreground font-medium">{t.name}</span>
                 </div>
-                <span className="text-sm text-muted-foreground font-medium">{t.name}</span>
-              </div>
               </Reveal>
             ))}
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }

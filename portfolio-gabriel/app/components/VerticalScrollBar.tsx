@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion"
 
 export default function VerticalScrollBar() {
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll()
 
   // Thumb: keep a modern proportion of the track height
-  const THUMB_SIZE = 0.08; // 8% of track height (slightly smaller for a more native feel)
-  const top = useTransform(scrollYProgress, (v) => `${v * (1 - THUMB_SIZE) * 100}%`);
-  const height = useTransform(scrollYProgress, (v) => `${Math.max(v * 100, 0.001)}%`);
+  const THUMB_SIZE = 0.08 // 8% of track height (slightly smaller for a more native feel)
+  const top = useTransform(scrollYProgress, (v) => `${v * (1 - THUMB_SIZE) * 100}%`)
+  const height = useTransform(scrollYProgress, (v) => `${Math.max(v * 100, 0.001)}%`)
 
   return (
     <div
@@ -32,5 +32,5 @@ export default function VerticalScrollBar() {
         />
       </div>
     </div>
-  );
+  )
 }

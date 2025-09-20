@@ -1,45 +1,45 @@
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
-import Image from 'next/image';
-import experiences from '../assets/WorkExperience';
-import Reveal from './Reveal';
+import { Briefcase, Calendar, MapPin } from "lucide-react"
+import Image from "next/image"
+import experiences from "../assets/WorkExperience"
+import Reveal from "./Reveal"
 
 // Normalize company names to improve matching
 function normalizeCompanyName(name: string) {
   return name
     .trim()
     .toLowerCase()
-    .replace(/\s+/g, ' ')
-    .replace(/&/g, 'and');
+    .replace(/\s+/g, " ")
+    .replace(/&/g, "and")
 }
 
 // Map of known company names to local logo paths under public/logos
 const companyLogoMap: Record<string, string> = {
-  'fit - flextronics institute of technology': '/logos/fit_3.jpg',
-  'motorola mobility (a lenovo company)': '/logos/motorola_1.jpg',
-};
+  "fit - flextronics institute of technology": "/logos/fit_3.jpg",
+  "motorola mobility (a lenovo company)": "/logos/motorola_1.jpg",
+}
 
 function formatDateLabel(dateStr: string | null) {
-  if (!dateStr) return 'Present';
-  const d = new Date(dateStr);
-  return d.toLocaleString('en-US', { month: 'short', year: 'numeric' });
+  if (!dateStr) return "Present"
+  const d = new Date(dateStr)
+  return d.toLocaleString("en-US", { month: "short", year: "numeric" })
 }
 
 function calcDuration(startStr: string, endStr: string | null) {
-  const start = new Date(startStr);
-  const end = endStr ? new Date(endStr) : new Date();
+  const start = new Date(startStr)
+  const end = endStr ? new Date(endStr) : new Date()
 
-  let years = end.getFullYear() - start.getFullYear();
-  let months = end.getMonth() - start.getMonth();
+  let years = end.getFullYear() - start.getFullYear()
+  let months = end.getMonth() - start.getMonth()
   if (months < 0) {
-    years -= 1;
-    months += 12;
+    years -= 1
+    months += 12
   }
 
-  const parts: string[] = [];
-  if (years > 0) parts.push(`${years} year${years > 1 ? 's' : ''}`);
-  if (months > 0) parts.push(`${months} month${months > 1 ? 's' : ''}`);
-  if (parts.length === 0) return 'Less than a month';
-  return parts.join(' ');
+  const parts: string[] = []
+  if (years > 0) parts.push(`${years} year${years > 1 ? "s" : ""}`)
+  if (months > 0) parts.push(`${months} month${months > 1 ? "s" : ""}`)
+  if (parts.length === 0) return "Less than a month"
+  return parts.join(" ")
 }
 
 interface ExperienceType {
@@ -53,75 +53,75 @@ interface ExperienceType {
 }
 
 function ExperienceCard({ experience }: { experience: ExperienceType }) {
-  const start = experience.startDate;
-  const end = experience.endDate ?? null;
-  const startLabel = formatDateLabel(start);
-  const endLabel = formatDateLabel(end);
-  const duration = calcDuration(start, end);
+  const start = experience.startDate
+  const end = experience.endDate ?? null
+  const startLabel = formatDateLabel(start)
+  const endLabel = formatDateLabel(end)
+  const duration = calcDuration(start, end)
 
-  const periodLabel = `${startLabel} - ${endLabel} · ${duration}`;
-  const logoSrc = companyLogoMap[normalizeCompanyName(experience.company)] ?? null;
+  const periodLabel = `${startLabel} - ${endLabel} · ${duration}`
+  const logoSrc = companyLogoMap[normalizeCompanyName(experience.company)] ?? null
 
   return (
     <Reveal>
-    <div className="bg-card border border-border rounded-xl p-8 hover:bg-accent transition-all duration-300">
-      <div className="flex flex-col md:flex-row md:items-start md:space-x-6">
-        <div className="flex-shrink-0 mb-4 md:mb-0">
-          <div className="w-16 h-16 bg-secondary/10 border border-secondary/20 rounded-full flex items-center justify-center relative overflow-hidden">
-            {logoSrc ? (
-              <Image
-                src={logoSrc}
-                alt={`${experience.company} logo`}
-                fill
-                sizes="64px"
-                className="object-cover"
-                priority={false}
-              />
-            ) : (
-              <Briefcase className="w-8 h-8 text-secondary" />
-            )}
+      <div className="bg-card border border-border rounded-xl p-8 hover:bg-accent transition-all duration-300">
+        <div className="flex flex-col md:flex-row md:items-start md:space-x-6">
+          <div className="flex-shrink-0 mb-4 md:mb-0">
+            <div className="w-16 h-16 bg-secondary/10 border border-secondary/20 rounded-full flex items-center justify-center relative overflow-hidden">
+              {logoSrc ? (
+                <Image
+                  src={logoSrc}
+                  alt={`${experience.company} logo`}
+                  fill
+                  sizes="64px"
+                  className="object-cover"
+                  priority={false}
+                />
+              ) : (
+                <Briefcase className="w-8 h-8 text-secondary" />
+              )}
+            </div>
           </div>
-        </div>
-        <div className="flex-grow">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+          <div className="flex-grow">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <div>
+                <h3 className="text-2xl font-bold text-foreground mb-1">
+                  {experience.title}
+                </h3>
+                <h4 className="text-xl text-secondary font-semibold mb-2">
+                  {experience.company}
+                </h4>
+              </div>
+              <div className="flex flex-col md:items-end space-y-1">
+                <div className="flex items-center space-x-2 text-muted-foreground">
+                  <Calendar className="w-4 h-4" />
+                  <span className="text-sm font-medium">{periodLabel}</span>
+                </div>
+                <div className="flex items-center space-x-2 text-muted-foreground">
+                  <MapPin className="w-4 h-4" />
+                  <span className="text-sm">{experience.location}</span>
+                </div>
+              </div>
+            </div>
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              {experience.description}
+            </p>
             <div>
-              <h3 className="text-2xl font-bold text-foreground mb-1">
-                {experience.title}
-              </h3>
-              <h4 className="text-xl text-secondary font-semibold mb-2">
-                {experience.company}
-              </h4>
+              <h5 className="font-semibold text-foreground mb-2">Key Achievements:</h5>
+              <ul className="space-y-1">
+                {experience.highlights.map((highlight: string, highlightIndex: number) => (
+                  <li key={highlightIndex} className="flex items-start space-x-2">
+                    <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-muted-foreground text-sm">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="flex flex-col md:items-end space-y-1">
-              <div className="flex items-center space-x-2 text-muted-foreground">
-                <Calendar className="w-4 h-4" />
-                <span className="text-sm font-medium">{periodLabel}</span>
-              </div>
-              <div className="flex items-center space-x-2 text-muted-foreground">
-                <MapPin className="w-4 h-4" />
-                <span className="text-sm">{experience.location}</span>
-              </div>
-            </div>
-          </div>
-          <p className="text-muted-foreground mb-4 leading-relaxed">
-            {experience.description}
-          </p>
-          <div>
-            <h5 className="font-semibold text-foreground mb-2">Key Achievements:</h5>
-            <ul className="space-y-1">
-              {experience.highlights.map((highlight: string, highlightIndex: number) => (
-                <li key={highlightIndex} className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-muted-foreground text-sm">{highlight}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
-    </div>
     </Reveal>
-  );
+  )
 }
 
 export default function Experience() {
@@ -145,5 +145,5 @@ export default function Experience() {
         </div>
       </div>
     </section>
-  );
+  )
 }

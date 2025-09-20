@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { motion, useInView } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { motion, useInView } from "framer-motion"
+import { useRef, type ReactNode } from "react"
 
 type Props = {
   children: ReactNode;
@@ -10,8 +10,8 @@ type Props = {
 };
 
 export default function Reveal({ children, delay = 0.1, y = 24 }: Props) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(ref, { once: true, margin: "-10% 0px -10% 0px" });
+  const ref = useRef<HTMLDivElement | null>(null)
+  const inView = useInView(ref, { once: true, margin: "-10% 0px -10% 0px" })
   return (
     <motion.div
       ref={ref}
@@ -21,5 +21,5 @@ export default function Reveal({ children, delay = 0.1, y = 24 }: Props) {
     >
       {children}
     </motion.div>
-  );
+  )
 }

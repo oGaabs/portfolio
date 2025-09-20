@@ -1,57 +1,70 @@
-import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import React from "react"
+import { ExternalLink, Github } from "lucide-react"
+import Image from "next/image"
 
 const Projects = () => {
   const projects = [
     {
       title: "E-Commerce Platform",
-      description: "A full-featured e-commerce platform built with React, Node.js, and Stripe integration. Features include user authentication, shopping cart, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
+      description:
+        "A full-featured e-commerce platform built with React, Node.js, and Stripe integration. Features include user authentication, shopping cart, and admin dashboard.",
+      image:
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
       technologies: ["React", "Node.js", "MongoDB", "Stripe"],
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "#",
     },
     {
       title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
+      description:
+        "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+      image:
+        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
       technologies: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "#",
     },
     {
       title: "Weather Dashboard",
-      description: "A beautiful weather dashboard that provides detailed weather information with interactive charts and location-based forecasts.",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
+      description:
+        "A beautiful weather dashboard that provides detailed weather information with interactive charts and location-based forecasts.",
+      image:
+        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
       technologies: ["React", "Chart.js", "Weather API", "Tailwind"],
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "#",
     },
     {
       title: "Social Media App",
-      description: "A modern social media application with real-time messaging, post sharing, and user profiles. Built with modern web technologies.",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=300&fit=crop",
+      description:
+        "A modern social media application with real-time messaging, post sharing, and user profiles. Built with modern web technologies.",
+      image:
+        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=300&fit=crop",
       technologies: ["React", "Firebase", "Material-UI", "PWA"],
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "#",
     },
     {
       title: "Portfolio Website",
-      description: "A responsive portfolio website showcasing projects and skills with smooth animations and modern design principles.",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
+      description:
+        "A responsive portfolio website showcasing projects and skills with smooth animations and modern design principles.",
+      image:
+        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
       technologies: ["Next.js", "Framer Motion", "Tailwind", "Vercel"],
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "#",
     },
     {
       title: "Learning Platform",
-      description: "An online learning platform with course management, progress tracking, and interactive content delivery system.",
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=300&fit=crop",
+      description:
+        "An online learning platform with course management, progress tracking, and interactive content delivery system.",
+      image:
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=300&fit=crop",
       technologies: ["React", "Express", "PostgreSQL", "Redis"],
       liveUrl: "#",
-      githubUrl: "#"
-    }
-  ];
+      githubUrl: "#",
+    },
+  ]
 
   return (
     <section id="projects" className="py-20 bg-muted/50">
@@ -62,7 +75,7 @@ const Projects = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-yellow-400 mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Here are some of the projects I've worked on recently
+            Here are some of the projects I&apos;ve worked on recently
           </p>
         </div>
 
@@ -73,7 +86,7 @@ const Projects = () => {
               className="bg-card border border-border rounded-xl overflow-hidden hover:bg-accent transition-all duration-300 hover:scale-105 group"
             >
               <div className="relative overflow-hidden">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
@@ -123,7 +136,7 @@ const Projects = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

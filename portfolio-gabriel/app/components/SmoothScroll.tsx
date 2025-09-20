@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import Lenis from "lenis";
-import { useEffect, type ReactNode } from "react";
+import Lenis from "lenis"
+import { useEffect, type ReactNode } from "react"
 
 type Props = {
   children: ReactNode;
@@ -15,21 +15,21 @@ export default function SmoothScroll({ children }: Props) {
       smoothWheel: true,
       syncTouch: true,
       wheelMultiplier: 1,
-    });
+    })
 
-    let rafId = 0;
+    let rafId = 0
     const raf = (time: number) => {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    };
-    rafId = requestAnimationFrame(raf);
+      lenis.raf(time)
+      rafId = requestAnimationFrame(raf)
+    }
+    rafId = requestAnimationFrame(raf)
 
     return () => {
       cancelAnimationFrame(rafId);
       // destroy exists at runtime
-      (lenis as unknown as { destroy?: () => void }).destroy?.();
-    };
-  }, []);
+      (lenis as unknown as { destroy?: () => void }).destroy?.()
+    }
+  }, [])
 
-  return <>{children}</>;
+  return <>{children}</>
 }
